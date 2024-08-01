@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, { useEffect } from 'react';
 import { usePathname } from 'next/navigation'
 
 interface MangaInfo {
@@ -27,7 +27,32 @@ export default function Manga() {
 
   // Find the manga that matches the 'out' variable
   const mangaInfo = manga[out];
-  
+
+  useEffect(() => {
+    const sendMangaInfo = async () => {
+      try {
+        const response = await fetch('https://utkfcob983.execute-api.us-east-2.amazonaws.com/dev', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ 'unique-id': out })
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Response:', data);
+      } catch (error) {
+        console.error('Error sending manga info:', error);
+      }
+    };
+
+    sendMangaInfo();
+  }, [out]);
+
   return (
     <div>
       <h1>Manga info</h1>
@@ -40,21 +65,11 @@ export default function Manga() {
           <h2>Chapters</h2>
           <ul>
             {mangaInfo.chapters.map((chapter, index) => (
-              <li key={index}> 
-                <p>{chapter.number}</p>
-                <p>{chapter.uid}</p>
-                
-                <a href={`/manga/${out}/${chapter.uid}`}> View chapter</a>
-                
-                {/* {chapter.images.map((image, index) => (
-                  <img height="100px" width= "80px" key={index} src={image} alt={`Chapter image ${index + 1}`} />
-                ))} */}
-
-              </li>
+              <li key={index}>{JSON.stringify(chapter)}</li>
             ))}
           </ul>
         </div>
       )}
     </div>
-  )
+  );
 }
