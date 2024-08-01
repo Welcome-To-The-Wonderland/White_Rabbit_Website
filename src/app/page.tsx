@@ -1,35 +1,53 @@
-'use client';
-import { useEffect, useState } from 'react';
+'use client'
+import { useState, useEffect } from 'react';
+import './home.css';
 import Link from 'next/link';
 
+//run command: npm run dev
+
 export default function Home() {
-  const [data, setData] = useState<any[]>([]);
+  const [mangaData, setMangaData] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
         const response = await fetch('https://utkfcob983.execute-api.us-east-2.amazonaws.com/dev', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ "unique-id": "alpha_numeric_id_2" }),
+          body: JSON.stringify({
+            "manga-ids": [
+              "manga-bc979159"
+            ]
+          })
         });
 
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error('Network response was not ok');
         }
 
-        const result = await response.json();
-        setData(result);
-      } catch (error: any) {
-        setError(error.message);
+        const data = await response.json();
+        setMangaData(data);
+      } catch (err) {
+        setError('Error fetching data');
+      } finally {
+        setLoading(false);
       }
-    }
+    };
 
     fetchData();
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <div>
@@ -39,10 +57,8 @@ export default function Home() {
       }}> some link
       </Link>
 
-      {error && <p>Error: {error}</p>}
-
       <div className="grid">
-        {data.map((manga: any) => {
+        {mangaData.map((manga: any) => {
           return (
             <div key={manga.id} className="card">
               <Link href={{
@@ -52,9 +68,9 @@ export default function Home() {
                 <h3>{manga.title}</h3>
               </Link>
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }
