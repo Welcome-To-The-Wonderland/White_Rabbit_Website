@@ -19,20 +19,42 @@ export default function Home() {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            "manga-ids": [
-              "manga-bc979159"
-            ]
+            "unique-id": "alpha_numeric_id_2"
           })
         });
 
+        //error handling network status
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error(`Network response was not ok: ${response.statusText}`);
         }
 
         const data = await response.json();
-        setMangaData(data);
-      } catch (err) {
-        setError('Error fetching data');
+        console.log('Fetched data:', data); // Log the response data AKA fetched data
+
+        // Parse the body field
+        const parsedBody = JSON.parse(data.body);
+
+        // Extract manga data 
+        const mangaItems = Object.keys(parsedBody).map(key => {
+          if (parsedBody[key].title) {
+            //right now, it's only grabbing the cover title and cover link
+            return {
+              id: key,
+              title: parsedBody[key].title,
+              cover_link: parsedBody[key].cover_link
+            };
+          }
+          return null;
+        }).filter(item => item !== null);
+
+        setMangaData(mangaItems);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(`Error fetching data: ${err.message}`);
+          console.error('Error details:', err);
+        } else {
+          setError('An unknown error occurred');
+        }
       } finally {
         setLoading(false);
       }
@@ -52,10 +74,6 @@ export default function Home() {
   return (
     <div>
       <h1>Look at me</h1>
-      <Link href={{
-        pathname: `/manga/manga-ny991307`,
-      }}> some link
-      </Link>
 
       <div className="grid">
         {mangaData.map((manga: any) => {
