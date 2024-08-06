@@ -19,7 +19,7 @@ export default function Home() {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            "unique-id": "alpha_numeric_id_2"
+            "unique-id": "alpha_numeric_id_3"
           })
         });
 
@@ -74,7 +74,12 @@ export default function Home() {
   return (
     <div>
       <h1>Look at me</h1>
-
+      <div>
+            <h1>signup and login</h1>
+            <Link href={{
+              pathname: '/login-success',
+            }}><p>Register or Login</p></Link>
+      </div>
       <div className="grid">
         {mangaData.map((manga: any) => {
           return (
