@@ -5,12 +5,15 @@ import Link from 'next/link'
 
 //run command: npm run dev
 
+import Header from '../components/header'
+
 export default function Home() {
   let x = "manga-ny991307";
 
   return (
     <div>
-      <h1>Look at me</h1>
+      
+      <Header/>
       <Link href = {{
         pathname: `/manga/${x}`,
       }}> some link
