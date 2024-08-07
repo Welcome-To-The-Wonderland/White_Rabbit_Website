@@ -21,5 +21,23 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
+  },
+  "parameters": {
+    "AMPLIFY_function_whiteRabbitFunc_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "whiteRabbitFunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_whiteRabbitFunc_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "whiteRabbitFunc"
+        }
+      ]
+    }
   }
 }

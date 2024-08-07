@@ -13,7 +13,13 @@
     },
     "categories": {
       "function": {
-        "whiteRabbitFunc": {}
+        "whiteRabbitFunc": {
+          "deploymentBucketName": "amplify-whiterabbit-dev-6744b-deployment",
+          "s3Key": "amplify-builds/whiteRabbitFunc-6e6a6c5269524232542f-build.zip"
+        }
+      },
+      "api": {
+        "mangaAPI": {}
       }
     }
   }
