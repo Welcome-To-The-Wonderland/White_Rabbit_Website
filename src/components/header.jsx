@@ -5,7 +5,7 @@ export default function Header() {
         <div className="testContainer">
             <h1>MANGA WAVE</h1>
             <p>
-                The best platform for reading manga without ads, all the manga you need to cater to your weebish and perverted desires
+                The best platform for reading manga without ads
             </p>
             <img src="/logo.svg" alt="Logo"/>
             <p>Created by Ashhad Jaffer and Rounaq Khan</p>
