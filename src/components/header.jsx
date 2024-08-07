@@ -7,7 +7,7 @@ export default function Header() {
             <p style={{ fontFamily: 'Georgia, serif' }}>
                 The best platform for reading manga without ads, all the manga you need to cater to your weebish and perverted desires
             </p>
-            <img src="/logo.svg" alt="Logo" />
+            <img src="/logo.svg" alt="Logo"/>
             <p style={{ fontFamily: 'Courier New, monospace' }}>Created by Ashhad Jaffer and Rounaq Khan</p>
             <img src="https://pbs.twimg.com/media/E0MD7NbWUAQe0G-.jpg" alt="Gojo Satoru" style={{ display: 'block', margin: '0 auto' }} />
         </div>
