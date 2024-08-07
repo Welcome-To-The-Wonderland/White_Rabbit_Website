@@ -5,4 +5,3 @@ h1 {
     font-weight: bold;
     color: white; /* Base color for text */
     -webkit-text-stroke: 2px purple; /* Purple stroke */
-}
