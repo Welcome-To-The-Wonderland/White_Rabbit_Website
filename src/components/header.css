@@ -1,9 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Bayon');
 
-.testContainer {
+.container {
     background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.bullshit_name {
+.title {
     font-family: 'Bayon';
+    font-weight: bold;
+    color: white; /* Base color for text */
+    -webkit-text-stroke: 2px #810096;
+}
+
+.orientation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
