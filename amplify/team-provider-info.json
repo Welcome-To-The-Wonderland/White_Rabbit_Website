@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-whiterabbit-dev-6744b-authRole",
+      "UnauthRoleArn": "arn:aws:iam::381492215009:role/amplify-whiterabbit-dev-6744b-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::381492215009:role/amplify-whiterabbit-dev-6744b-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-whiterabbit-dev-6744b-deployment",
+      "UnauthRoleName": "amplify-whiterabbit-dev-6744b-unauthRole",
+      "StackName": "amplify-whiterabbit-dev-6744b",
+      "StackId": "arn:aws:cloudformation:us-east-2:381492215009:stack/amplify-whiterabbit-dev-6744b/1e67d560-54e5-11ef-8b2c-0262e9231be5",
+      "AmplifyAppId": "d1qzf5epw70sne"
+    },
+    "categories": {
+      "function": {
+        "whiteRabbitFunc": {}
+      }
+    }
+  }
+}
