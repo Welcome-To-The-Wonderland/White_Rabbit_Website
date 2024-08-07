@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import './home.css';
 import Link from 'next/link';
+import { Authenticator } from '@aws-amplify/ui-react'
+import '@aws-amplify/ui-react/styles.css'
 
 //run command: npm run dev
 
@@ -71,6 +73,10 @@ export default function Home() {
     return <div>{error}</div>;
   }
 
+  //testing for amplify/cognito auth
+  
+
+
   return (
     <div>
       <h1>Look at me</h1>
@@ -80,6 +86,7 @@ export default function Home() {
               pathname: '/login-success',
             }}><p>Register or Login</p></Link>
       </div>
+
       <div className="grid">
         {mangaData.map((manga: any) => {
           return (
