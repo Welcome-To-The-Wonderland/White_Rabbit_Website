@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Bayon');
+@import url('https://fonts.googleapis.com/css?family=Ovo');
+.text {
+    font-family: 'Ovo';
+}
+
+
+.title {
+    font-family: 'Bayon';
+    font-weight: bold;
+    color: white; /* Base color for text */
+    -webkit-text-stroke: 2px #810096;
+}
+.font {
+    font-family: 'Ovo';
+    font-weight: bold;
+    color: white; /* Base color for text */
+    -webkit-text-stroke: 2px #810096;
+}
